@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+{% block content %}
+	
+
+	<form method ="POST" action="">
+    		<!-- hidden tag dodaje CSRF token -->
+    	{{form.hidden_tag()}} 
+    	<fieldset class="form">
+		    
+
+			{{ form.username.label() }}
+
+			<br>
+			{% if form.username.errors %}
+
+				{{ form.username() }}
+				<div class='invalid'>
+					
+					{% for error in form.username.errors %}
+
+						{{ error }}
+
+					{% endfor %}
+
+				</div>
+
+			{% else %}
+
+				{{ form.username() }}
+
+			{% endif %}
+			<br><br>
+			
+
+
+
+
+
+
+			{{ form.email.label() }}
+
+			<br>
+			{% if form.email.errors %}
+
+				{{ form.email() }}
+				<div class='invalid'>
+					
+					{% for error in form.email.errors %}
+
+						{{ error }}
+
+					{% endfor %}
+
+				</div>
+
+			{% else %}
+
+				{{ form.email() }}
+
+			{% endif %}
+			<br><br>
+
+
+
+
+
+			{{ form.password.label() }}
+
+			<br>
+			{% if form.password.errors %}
+
+				{{ form.password() }}
+				<div class='invalid'>
+					
+					{% for error in form.password.errors %}
+
+						{{ error }}
+
+					{% endfor %}
+
+				</div>
+
+			{% else %}
+
+				{{ form.password() }}
+
+			{% endif %}
+			<br><br>
+
+
+
+
+
+
+
+			{{ form.confirm_password.label() }}
+
+			<br>
+			{% if form.confirm_password.errors %}
+
+				{{ form.confirm_password() }}
+				<div class='invalid'>
+					
+					{% for error in form.confirm_password.errors %}
+
+						{{ error }}
+
+					{% endfor %}
+
+				</div>
+
+			{% else %}
+
+				{{ form.confirm_password() }}
+
+			{% endif %}
+			<br><br>
+
+			{{form.submit()}}
+
+	
+		</fieldset>
+	</form>
+
+{% endblock content %}
+
+
+
+

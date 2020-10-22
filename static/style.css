@@ -1,0 +1,144 @@
+
+body
+{
+	
+	background: url('/static/img/image.jpg');
+}
+
+#container
+{
+	width: 1600px;
+	margin-left: auto;
+	margin-right: auto;
+
+
+}
+
+#header
+{
+
+	height: 80px;
+	background-color: #edd6b4;
+	padding: 20px;
+	text-align: center;
+	line-height: 70px;
+
+	
+}
+
+#headerLeft
+{
+
+	width: 260px;
+	float: left;
+
+	
+}
+
+#headerMid
+{
+
+	width: 960px;
+	text-align: center;
+	font-size: 40px;
+	letter-spacing: 10px;
+	float: left;
+}
+
+#headerRight
+{
+
+	width: 260px;
+	text-align: right;
+	float: left;
+
+	
+}
+
+
+#content-logo
+{
+
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#content
+{
+
+	width: 1400px;
+	background-color: #fffbf5;
+	height: 800px;
+	text-align: center;
+	float: left;
+	
+
+	
+}
+
+#logo
+{
+	width: 200px;
+	writing-mode: vertical-rl;
+	line-height: 200px;
+	float: left;
+	
+	
+}
+
+#footer
+{
+	background-color: #edd6b4;
+	height: 30px;
+	text-align: center;
+	clear: both;
+	
+}
+
+.headerMenu
+{
+
+	border: 1px solid #f7deba;
+	background-color: #f0d8b4;
+	padding-left: 30px;
+	padding-right: 30px;
+	float: left;
+}
+
+
+.headerMenu:hover
+{
+	cursor: pointer;
+	background-color: #e8d0ac;
+}
+
+
+.form
+{	
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 30px;
+	border: 1px solid #f0e1c0;
+	padding: 20px;
+}
+
+.success_field
+{
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	color: green;
+	border: 1px solid green;
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.invalid
+{
+	color:red;
+	font-size: 10px;
+	font-style: italic;
+}
+

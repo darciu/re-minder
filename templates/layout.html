@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+
+    
+    <link rel="stylesheet" href="static/style.css" type="text/css" />    
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Re-minder</title>
+    {% endif %}
+</head>
+<body>
+
+  <!-- główny kontener -->
+  <div id='container'>
+    
+
+
+
+    <div id='header'>
+      
+      <div id='headerLeft'>
+        
+        <div class='headerMenu'>
+          <a href="{{url_for('home')}}">Re-minder</a>
+        </div>
+        <div class='headerMenu'>
+          <a href="{{url_for('about')}}">About Us</a>
+        </div>
+        <div style="clear: both;"></div>
+
+        
+        
+
+      </div>
+
+      <div id='headerMid'>
+        
+        Logo
+        
+      </div>
+
+      <div id='headerRight'>
+        
+        
+        <div class='headerMenu'>
+          <a href="{{url_for('login')}}">Login</a>
+        </div>
+        <div class='headerMenu'>
+          <a href="{{url_for('register')}}">Register</a>
+        </div>
+        <div style="clear: both;"></div>
+
+      </div>
+
+    </div>
+
+    <div id='content-logo'>
+      <div id='content'>
+        
+
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="{{category}}">
+                  
+                  {{ message }}
+
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+
+        {% block content %}{% endblock %}
+
+        
+
+      </div>
+
+      <div id='logo'>
+        
+
+        IMG IMG IMG
+
+      </div>
+
+    </div>
+
+    <div id='footer'>
+      
+
+        This web application was created on Oct, 2020. &copy;
+
+    </div>
+
+
+
+
+  </div>
+
+
+</body> 
+
+
+
+
+
+
+
+</html>
