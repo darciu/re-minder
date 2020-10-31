@@ -1,9 +1,11 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
-app = Flask(__name__)
-app.debug=True
+# routing in application
 
-app.config['SECRET_KEY'] = '09995165446f21c6d5487af318d03ead'
+from flask import render_template, url_for, flash, redirect
+from src.forms import RegistrationForm, LoginForm
+from src.models import User, Tasks
+from src import app
+
+
 
 @app.route('/')
 def home():
@@ -34,7 +36,3 @@ def register():
 
 
 
-
-
-if __name__ == '__main__':
-	app.run(host= '0.0.0.0',port=5000,threaded=False,processes=5)
