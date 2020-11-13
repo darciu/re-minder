@@ -8,7 +8,7 @@
     
 
     
-    <link rel="stylesheet" href="static/style.css" type="text/css" />    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />    
 
     {% if title %}
         <title>{{ title }}</title>
@@ -49,14 +49,43 @@
 
       <div id='headerRight'>
         
-        
-        <div class='headerMenu'>
-          <a href="{{url_for('login')}}">Login</a>
-        </div>
-        <div class='headerMenu'>
-          <a href="{{url_for('register')}}">Register</a>
-        </div>
-        <div style="clear: both;"></div>
+        {% if current_user.is_authenticated %}
+
+          <div class='headerMenu'>
+            <a href="{{url_for('application')}}">Application</a>
+          </div>
+
+
+          <div class='headerMenu'>
+            <a href="{{url_for('account')}}">Your account</a>
+          </div>
+
+          <div class='headerMenu'>
+            <a href="{{url_for('logout')}}">Logout</a>
+          </div>
+          
+          <div style="clear: both;"></div>
+
+
+
+        {% else %}
+
+
+          
+          <div class='headerMenu'>
+            <a href="{{url_for('register')}}">Register</a>
+          </div>
+
+          <div class='headerMenu'>
+            <a href="{{url_for('login')}}">Login</a>
+          </div>
+          
+          <div style="clear: both;"></div>
+
+
+
+        {% endif %}
+
 
       </div>
 

@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+    <h2>Cześć {{ current_user.username }}!</h2><br><br>
+
+    <form method='POST' action='' enctype="multipart/form-data">
+
+    	{{form.hidden_tag()}} 
+
+    	<fieldset class='form'>
+    		
+
+    		<legend>Twoje dane</legend>
+		    
+
+			{{ form.email.label() }}
+			<br>
+			{% if form.email.errors %}
+
+				{{ form.email() }}
+				<div class='invalid'>
+					
+					{% for error in form.email.errors %}
+
+						{{ error }}
+
+					{% endfor %}
+
+				</div>
+
+			{% else %}
+
+				{{ form.email() }}
+
+			{% endif %}
+			<br><br>
+
+
+			{{ form.submit() }}
+
+
+    	</fieldset>
+
+    </form>
+
+{% endblock content %}

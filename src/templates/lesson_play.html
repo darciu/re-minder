@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    
+
+	<h1>{{ lesson.title }}</h1>
+	<br>
+	Short Description:<br>
+	{{ lesson.short_description }}
+
+	{% if show=='True' %}
+		<br><br>
+		Content:<br>
+		{{ lesson.content }}
+
+		<br><br><br>
+
+		<img src="/static/lesson_pics/{{ lesson.image_path }}">
+
+	{% else %}
+
+			
+
+
+		<br>
+
+		<a href="{{ url_for('lesson_play',lesson_id=lesson.id, show=True) }}">Show All</a>
+		
+	
+	{% endif %}
+	<br><br>
+	<a href="{{ url_for('application') }}">Go Back</a>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    Hello {{ current_user.username }}!
+    <br><br>
+
+    <div>
+    	
+    	<table>
+		  <tr>
+		    <th>Lesson ID</th>
+		    <th>Domain</th>
+		    <th>Title</th>
+		    <th>Short desc.</th>
+		    <th>Date added</th>
+		    <th>Last pass</th>
+		    <th>Next pass</th>
+		    <th>Pass count</th>
+		    <th>Play</th>
+		    <th>Archive</th>
+		    <th>Delete</th>
+		  </tr>
+
+		  {% for lesson in lessons %}
+		  <tr>
+		    <th>{{ lesson.id }}</th>
+		    <th>{{ lesson.domain }}</th>
+		    <th>{{ lesson.title }}</th>
+		    <th>{{ lesson.short_description }}</th>
+		    <th>{{ lesson.creation_date }}</th>
+		    <th>{{ lesson.last_pass_date }}</th>
+		    <th>{{ lesson.next_pass_date }}</th>
+		    <th>{{ lesson.pass_count }}</th>
+		    <th><a href="{{ url_for('lesson_play',lesson_id=lesson.id, show=False) }}">Play</a></th>
+		    <th><a href="{{ url_for('lesson_archive',lesson_id=lesson.id) }}">Archive</a></th>
+		    <th><a href="{{ url_for('lesson_delete',lesson_id=lesson.id) }}">Delete</a></th>
+		  </tr>
+
+		  {% endfor %}
+		</table>
+
+    	<div>
+
+    		<br>
+    		
+    		<a href="{{ url_for('lesson_add') }}">Add Lesson</a>
+
+    		<br><br><br>
+
+    		<a href="{{ url_for('archived') }}">Go to Archived</a>
+
+
+
+    	</div>
+
+
+    </div>
+
+
+{% endblock content %}

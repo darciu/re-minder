@@ -135,6 +135,17 @@ body
 	padding: 20px;
 }
 
+.unsuccess_field
+{
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	color: red;
+	border: 1px solid red;
+	margin-top: 30px;
+	padding: 20px;
+}
+
 .invalid
 {
 	color:red;

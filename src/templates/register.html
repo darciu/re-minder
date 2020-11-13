@@ -6,6 +6,8 @@
     		<!-- hidden tag dodaje CSRF token -->
     	{{form.hidden_tag()}} 
     	<fieldset class="form">
+
+    		<legend>Register</legend>
 		    
 
 			{{ form.username.label() }}
@@ -121,6 +123,10 @@
 	
 		</fieldset>
 	</form>
+
+	<br>
+	Already have an account? <a href="{{url_for('login')}}">Login Here!</a>
+	
 
 {% endblock content %}
 

@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <form method ="POST" action="" enctype="multipart/form-data">
+    	
+    	{{form.hidden_tag()}}
+    	<fieldset class="form">
+    		
+    		<legend>Lesson</legend>
+
+
+
+    		{{ form.title.label() }}
+
+    		<br>
+
+    		{% if form.title.errors %}
+
+    			{{ form.title() }}
+
+    			<div class='invalid'>
+    			{% for error in form.title.errors %}
+
+    				{{ error }}
+
+    			{% endfor %}
+    			</div>
+
+    		{% else %}
+
+    			{{ form.title() }}
+
+    		{% endif %}
+
+    		<br><br>
+
+
+
+            {{ form.domain.label() }}
+
+            <br>
+
+            {% if form.domain.errors %}
+
+                {{ form.domain() }}
+
+                <div class='invalid'>
+                {% for error in form.domain.errors %}
+
+                    {{ error }}
+
+                {% endfor %}
+                </div>
+
+            {% else %}
+
+                {{ form.domain() }}
+
+            {% endif %}
+
+            <br><br>
+
+
+
+            {{ form.short_description.label() }}
+
+            <br>
+
+            {% if form.short_description.errors %}
+
+                {{ form.short_description() }}
+
+                <div class='invalid'>
+                {% for error in form.short_description.errors %}
+
+                    {{ error }}
+
+                {% endfor %}
+                </div>
+
+            {% else %}
+
+                {{ form.short_description() }}
+
+            {% endif %}
+
+            <br><br>
+
+
+
+
+            {{ form.content.label() }}
+
+            <br>
+
+            {% if form.content.errors %}
+
+                {{ form.content() }}
+
+                <div class='invalid'>
+                {% for error in form.content.errors %}
+
+                    {{ error }}
+
+                {% endfor %}
+                </div>
+
+            {% else %}
+
+                {{ form.content() }}
+
+            {% endif %}
+
+            <br><br>
+
+
+            {{ form.picture.label() }}
+
+            <br>
+
+            {% if form.picture.errors %}
+
+                {{ form.picture() }}
+
+                <div class='invalid'>
+                {% for error in form.picture.errors %}
+
+                    {{ error }}
+
+                {% endfor %}
+                </div>
+
+            {% else %}
+
+                {{ form.picture() }}
+
+            {% endif %}
+
+            <br><br>
+
+
+
+
+
+            {{ form.submit() }}
+
+
+
+
+
+    	</fieldset>
+
+
+
+  	
+
+    </form>
+
+    <a href="{{ url_for('application') }}">Go Back</a>
+
+    <br>
+
+
+{% endblock content %}
