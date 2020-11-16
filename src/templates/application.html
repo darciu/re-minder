@@ -31,9 +31,70 @@
 		    <th>{{ lesson.last_pass_date }}</th>
 		    <th>{{ lesson.next_pass_date }}</th>
 		    <th>{{ lesson.pass_count }}</th>
-		    <th><a href="{{ url_for('lesson_play',lesson_id=lesson.id, show=False) }}">Play</a></th>
-		    <th><a href="{{ url_for('lesson_archive',lesson_id=lesson.id) }}">Archive</a></th>
-		    <th><a href="{{ url_for('lesson_delete',lesson_id=lesson.id) }}">Delete</a></th>
+
+
+		    <th><a class="btn btn-info" href="{{ url_for('lesson_play',lesson_id=lesson.id, show=False) }}">Play</a></th>
+		    <th><button type="button" class="btn" data-toggle="modal" data-target="#archiveModal">Archive</button></th>
+		    <th><button type="button" class="btn" data-toggle="modal" data-target="#deleteModal">Delete</button></th>
+
+
+		    <!-- Archive Modal -->
+				<div class="modal fade" id="archiveModal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Archive Lesson</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+
+				      <div class="modal-body">
+				        Do you want to archive lesson with id {{ lesson.id }}?
+				      </div>
+
+				      <div class="modal-footer">
+
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+				        <form action="{{ url_for('lesson_archive',lesson_id=lesson.id) }}" method="POST">
+				          <input class="btn btn-info" type="submit" value="Archive">
+				        </form>
+
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+
+			 <!-- Delete Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="deleteModalLabel">Delete Lesson</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+
+				      <div class="modal-body">
+				        Do you want to delete lesson with id {{ lesson.id }}?
+				      </div>
+
+				      <div class="modal-footer">
+
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+				        <form action="{{ url_for('lesson_delete',lesson_id=lesson.id) }}" method="POST">
+				          <input class="btn btn-danger" type="submit" value="Delete">
+				        </form>
+
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
 		  </tr>
 
 		  {% endfor %}
@@ -42,12 +103,10 @@
     	<div>
 
     		<br>
-    		
-    		<a href="{{ url_for('lesson_add') }}">Add Lesson</a>
+    		<a class="btn btn-light" href="{{ url_for('lesson_add') }}">Add Lesson</a>
 
     		<br><br><br>
-
-    		<a href="{{ url_for('archived') }}">Go to Archived</a>
+    		<a class="btn btn-light" href="{{ url_for('archived') }}">Go to Archived</a>
 
 
 
@@ -55,6 +114,11 @@
 
 
     </div>
+
+
+
+
+
 
 
 {% endblock content %}
